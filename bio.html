@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RohitX Bio Generator — create a personal bio website instantly.">
+  <title>RohitX Bio Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#070914;--panel:#0e1423;--line:rgba(255,255,255,.10);--text:#f7f9ff;--muted:#9da8bd;--blue:#45b7ff;--purple:#8d5cff;--green:#38e19d;--radius:20px}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;background:radial-gradient(circle at 10% 10%,rgba(69,183,255,.10),transparent 28%),radial-gradient(circle at 90% 20%,rgba(141,92,255,.12),transparent 26%),#070914;color:var(--text)}
+    a{color:inherit;text-decoration:none}.container{width:min(1180px,calc(100% - 32px));margin:auto}
+    header{position:sticky;top:0;z-index:5;background:rgba(7,9,20,.75);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{font-size:21px;font-weight:800}.brand span{color:var(--blue)}
+    .back{color:#b8c2d4;font-size:13px}.back:hover{color:#fff}
+    .page{padding:38px 0 70px}.heading{text-align:center;max-width:700px;margin:0 auto 30px}.kicker{font-size:11px;letter-spacing:.18em;color:#9eabc1;font-weight:800}.heading h1{font-size:clamp(36px,5vw,58px);letter-spacing:-.045em;margin:12px 0}.gradient{background:linear-gradient(90deg,#45b7ff,#a66bff,#ff63c7);-webkit-background-clip:text;background-clip:text;color:transparent}.heading p{color:var(--muted);line-height:1.7;font-size:14px}
+    .workspace{display:grid;grid-template-columns:minmax(0, .95fr) minmax(340px,1.05fr);gap:22px;align-items:start}
+    .panel{background:rgba(14,20,35,.78);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:0 22px 60px rgba(0,0,0,.25)}
+    .panel h2{margin:0 0 15px;font-size:16px}.form-grid{display:grid;gap:14px}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    label{font-size:11px;color:#b5c0d2;font-weight:700;margin-bottom:7px;display:block}
+    input,textarea,select{width:100%;border:1px solid var(--line);background:rgba(255,255,255,.035);color:#fff;border-radius:12px;padding:11px 12px;outline:none;font:inherit;font-size:13px}
+    input:focus,textarea:focus,select:focus{border-color:rgba(69,183,255,.55);box-shadow:0 0 0 3px rgba(69,183,255,.10)}
+    textarea{min-height:90px;resize:vertical}.photo-row{display:flex;gap:12px;align-items:center}.avatar{width:70px;height:70px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.25);background:#111827}
+    .skills-wrap{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.skill-chip{padding:7px 10px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid var(--line);font-size:11px}
+    .actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.btn{border:1px solid transparent;border-radius:12px;padding:11px 15px;font-weight:800;font-size:12px;cursor:pointer}.primary{background:linear-gradient(100deg,var(--blue),var(--purple));color:#fff}.ghost{background:rgba(255,255,255,.04);border-color:var(--line);color:#fff}.success{background:rgba(56,225,157,.10);border-color:rgba(56,225,157,.25);color:var(--green)}
+    .preview-frame{background:#05070f;border:1px solid var(--line);border-radius:22px;padding:10px;position:sticky;top:92px;min-height:620px}.preview-note{font-size:10px;color:#738198;padding:4px 6px 10px}
+    #preview{min-height:580px;border-radius:18px;display:flex;align-items:center;justify-content:center;padding:22px;overflow:hidden}
+    .bio-card{width:min(100%,390px);padding:27px 22px;border-radius:24px;text-align:center;background:rgba(10,20,35,.64);border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(22px);box-shadow:0 24px 70px rgba(0,0,0,.45)}
+    .bio-photo{width:96px;height:96px;object-fit:cover;border-radius:50%;border:3px solid var(--accent,#6ee7ff);box-shadow:0 0 0 5px rgba(69,183,255,.11),0 0 35px rgba(69,183,255,.25)}.bio-name{font-size:30px;font-weight:800;margin-top:13px}.bio-tag{font-size:13px;color:var(--accent,#6ee7ff);margin-top:5px}.bio-intro{font-size:13px;color:#bac5d8;line-height:1.7;margin:15px auto 22px;max-width:310px}.bio-title{display:flex;align-items:center;gap:8px;font-size:15px;text-align:left;margin:21px 0 9px}.bio-title:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--primary,#45b7ff),transparent);opacity:.55}.bio-about{text-align:left;font-size:12px;line-height:1.75;color:#c2ccdc;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:13px}.chips{display:flex;gap:7px;flex-wrap:wrap;justify-content:center}.chips span{font-size:11px;padding:7px 9px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}.socials{display:grid;grid-template-columns:1fr 1fr;gap:8px}.socials a{font-size:11px;padding:10px;border-radius:11px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);text-align:center}.foot{font-size:9px;letter-spacing:.12em;color:#7d899d;margin-top:20px}
+    .theme-preview-ocean{--primary:#45b7ff;--accent:#6ee7ff;--g1:#061525;--g2:#180d31}.theme-preview-purple{--primary:#a855f7;--accent:#d8b4fe;--g1:#090516;--g2:#160d2d}.theme-preview-emerald{--primary:#22c55e;--accent:#86efac;--g1:#02100a;--g2:#06251c}.theme-preview-sunset{--primary:#ff7a18;--accent:#ffd166;--g1:#120704;--g2:#27100a}
+    .theme-preview{background:radial-gradient(circle at 18% 18%,color-mix(in srgb,var(--primary) 25%,transparent),transparent 28%),radial-gradient(circle at 84% 20%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 26%),linear-gradient(140deg,var(--g1),var(--g2));position:relative}.theme-preview:before,.theme-preview:after{content:"";position:absolute;border-radius:50%;filter:blur(70px);opacity:.18;pointer-events:none}.theme-preview:before{width:220px;height:220px;background:var(--primary);left:-70px;top:-40px}.theme-preview:after{width:200px;height:200px;background:var(--accent);right:-60px;bottom:-60px}
+    @media(max-width:900px){.workspace{grid-template-columns:1fr}.preview-frame{position:static}.row{grid-template-columns:1fr}}
+    @media(max-width:520px){.container{width:min(100% - 20px,1180px)}.page{padding-top:25px}.panel{padding:15px}.socials{grid-template-columns:1fr 1fr}.preview-frame{padding:7px}#preview{padding:14px}.bio-card{padding:24px 16px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="index.html">ROHIT<span>X</span></a>
+    <a class="back" href="index.html">← Back to RohitX Tools</a>
+  </div>
+</header>
+
+<main class="page">
+  <div class="container">
+    <div class="heading">
+      <span class="kicker">ROHITX TOOL</span>
+      <h1>Build your <span class="gradient">personal bio</span>.</h1>
+      <p>Fill in your details, choose a theme, preview your page and download a ready-to-host <b>index.html</b>.</p>
+    </div>
+
+    <div class="workspace">
+      <section class="panel">
+        <h2>Your details</h2>
+        <div class="form-grid">
+          <div class="row">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" value="Your Name" maxlength="60">
+            </div>
+            <div>
+              <label for="identity">Identity / Role</label>
+              <input id="identity" value="Student • Creator • Developer" maxlength="120">
+            </div>
+          </div>
+          <div>
+            <label for="bio">Short bio</label>
+            <textarea id="bio" maxlength="400">Learning, building and creating useful things on the internet.</textarea>
+          </div>
+          <div class="row">
+            <div>
+              <label for="telegram">Telegram username / link</label>
+              <input id="telegram" placeholder="@yourusername">
+            </div>
+            <div>
+              <label for="instagram">Instagram username / link</label>
+              <input id="instagram" placeholder="@yourusername">
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="github">GitHub username / link</label>
+              <input id="github" placeholder="yourusername">
+            </div>
+            <div>
+              <label for="theme">Theme</label>
+              <select id="theme">
+                <option value="ocean">Ocean</option>
+                <option value="purple">Neon Purple</option>
+                <option value="emerald">Emerald</option>
+                <option value="sunset">Sunset</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label>Profile photo</label>
+            <div class="photo-row">
+              <img id="avatar" class="avatar" src="https://placehold.co/200x200/png?text=RX" alt="Preview">
+              <input id="photo" type="file" accept="image/*">
+            </div>
+          </div>
+          <div>
+            <label for="skills">Skills (comma separated)</label>
+            <input id="skills" value="Python, AI, Web Development, Editing">
+            <div id="skillChips" class="skills-wrap"></div>
+          </div>
+          <div class="actions">
+            <button id="generate" class="btn primary">Generate Website</button>
+            <button id="download" class="btn success">Download index.html</button>
+            <button id="copy" class="btn ghost">Copy HTML</button>
+          </div>
+          <div id="status" style="font-size:11px;color:#7f8ba0"></div>
+        </div>
+      </section>
+
+      <aside class="preview-frame">
+        <div class="preview-note">LIVE PREVIEW</div>
+        <div id="preview" class="theme-preview theme-preview-ocean"></div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  const fields = ["name","identity","bio","telegram","instagram","github","theme","skills"];
+  let photoData = "https://placehold.co/400x400/png?text=RX";
+
+  function normalize(value, type){
+    value = value.trim();
+    if(!value) return "#";
+    if(/^https?:\\/\\//i.test(value)) return value;
+    value = value.replace(/^@/,"").replace(/^\\//,"");
+    if(type === "telegram") return "https://t.me/" + value;
+    if(type === "instagram") return "https://instagram.com/" + value;
+    return "https://github.com/" + value;
+  }
+
+  function esc(str){
+    return str.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function readData(){
+    return {
+      name: $("name").value.trim() || "Your Name",
+      identity: $("identity").value.trim() || "Creator • Developer • Learner",
+      bio: $("bio").value.trim() || "Learning, building and creating useful things.",
+      telegram: normalize($("telegram").value, "telegram"),
+      instagram: normalize($("instagram").value, "instagram"),
+      github: normalize($("github").value, "github"),
+      theme: $("theme").value,
+      skills: $("skills").value.split(",").map(s=>s.trim()).filter(Boolean).slice(0,12)
+    };
+  }
+
+  function renderPreview(){
+    const d = readData();
+    $("skillChips").innerHTML = d.skills.map(s => `<span class="skill-chip">${esc(s)}</span>`).join("");
+    $("preview").className = "theme-preview theme-preview-" + d.theme;
+    $("preview").innerHTML = `
+      <div class="bio-card" style="--primary:${themePrimary(d.theme)};--accent:${themeAccent(d.theme)}">
+        <img class="bio-photo" src="${photoData}" alt="Profile">
+        <div class="bio-name">${esc(d.name)}</div>
+        <div class="bio-tag">${esc(d.identity)}</div>
+        <div class="bio-intro">${esc(d.bio)}</div>
+        <div class="bio-title">About Me</div>
+        <div class="bio-about">👋 Hey! I'm <b>${esc(d.name)}</b>.<br>${esc(d.bio)}</div>
+        <div class="bio-title">Skills</div>
+        <div class="chips">${d.skills.map(s=>`<span>${esc(s)}</span>`).join("")}</div>
+        <div class="bio-title">Find Me</div>
+        <div class="socials">
+          <a href="${d.telegram}" target="_blank" rel="noopener">Telegram</a>
+          <a href="${d.instagram}" target="_blank" rel="noopener">Instagram</a>
+          <a href="${d.github}" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:">Email</a>
+        </div>
+        <div class="foot">MADE WITH ✦ BY ${esc(d.name)}</div>
+      </div>`;
+  }
+
+  function themePrimary(t){return ({ocean:"#45b7ff",purple:"#a855f7",emerald:"#22c55e",sunset:"#ff7a18"})[t]||"#45b7ff"}
+  function themeAccent(t){return ({ocean:"#6ee7ff",purple:"#d8b4fe",emerald:"#86efac",sunset:"#ffd166"})[t]||"#6ee7ff"}
+
+  function generatedHTML(){
+    const d = readData();
+    const skills = d.skills.map(s=>`<span>${esc(s)}</span>`).join("");
+    const tp = themePrimary(d.theme), ta = themeAccent(d.theme);
+    const backgrounds = {
+      ocean:["#061525","#180d31"], purple:["#090516","#160d2d"],
+      emerald:["#02100a","#06251c"], sunset:["#120704","#27100a"]
+    }[d.theme];
+    return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>${esc(d.name)} | Bio</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Arial,sans-serif;color:#fff;
+display:flex;align-items:center;justify-content:center;padding:28px;background:
+radial-gradient(circle at 18% 18%,${tp}33,transparent 28%),
+radial-gradient(circle at 82% 25%,${ta}22,transparent 28%),
+linear-gradient(140deg,${backgrounds[0]},${backgrounds[1]});overflow:hidden}
+.wind i{position:fixed;width:180px;height:1px;background:linear-gradient(90deg,transparent,${ta},transparent);
+transform:rotate(-18deg);opacity:0;animation:w 6s linear infinite}.wind i:nth-child(1){top:18%;left:-200px}.wind i:nth-child(2){top:38%;left:-280px;animation-delay:2s}.wind i:nth-child(3){top:62%;left:-220px;animation-delay:1s}.wind i:nth-child(4){top:80%;left:-300px;animation-delay:3s}
+@keyframes w{0%{transform:translateX(0) rotate(-18deg);opacity:0}18%{opacity:.45}75%{opacity:.35}100%{transform:translateX(130vw) rotate(-18deg);opacity:0}}
+.card{width:min(430px,100%);padding:30px 22px;border-radius:26px;background:rgba(10,20,35,.62);border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(24px);box-shadow:0 25px 80px rgba(0,0,0,.45);text-align:center}
+.photo{width:108px;height:108px;object-fit:cover;border-radius:50%;border:3px solid ${ta};box-shadow:0 0 0 5px ${tp}22,0 0 35px ${tp}44}.name{font-size:34px;font-weight:800;margin-top:15px}.tag{color:${ta};font-size:14px;margin-top:6px}.intro{max-width:340px;margin:15px auto 25px;color:#bcc7d8;font-size:14px;line-height:1.7}
+.title{display:flex;align-items:center;gap:9px;text-align:left;font-size:18px;margin:24px 0 10px}.title:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,${tp},transparent);opacity:.5}
+.about{padding:14px;border-radius:15px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);text-align:left;color:#c4cede;font-size:13px;line-height:1.75}.skills{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}.skills span,.socials a{padding:8px 10px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);font-size:11px}.socials{display:grid;grid-template-columns:1fr 1fr;gap:8px}.socials a{border-radius:11px;text-decoration:none;color:#fff}.foot{font-size:9px;letter-spacing:.12em;color:#7e899c;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="wind"><i></i><i></i><i></i><i></i></div>
+<div class="card">
+<img class="photo" src="${photoData}" alt="Profile">
+<div class="name">${esc(d.name)}</div>
+<div class="tag">${esc(d.identity)}</div>
+<div class="intro">${esc(d.bio)}</div>
+<div class="title">About Me</div>
+<div class="about">👋 Hey! I'm <b>${esc(d.name)}</b>.<br>${esc(d.bio)}</div>
+<div class="title">Skills</div>
+<div class="skills">${skills}</div>
+<div class="title">Find Me</div>
+<div class="socials">
+<a href="${d.telegram}" target="_blank" rel="noopener">Telegram</a>
+<a href="${d.instagram}" target="_blank" rel="noopener">Instagram</a>
+<a href="${d.github}" target="_blank" rel="noopener">GitHub</a>
+<a href="mailto:">Email</a>
+</div>
+<div class="foot">MADE WITH ✦ BY ${esc(d.name)}</div>
+</div>
+</body>
+</html>`;
+  }
+
+  function setStatus(msg, ok=false){
+    $("status").textContent = msg;
+    $("status").style.color = ok ? "#38e19d" : "#7f8ba0";
+  }
+
+  $("photo").addEventListener("change", (e)=>{
+    const file = e.target.files?.[0];
+    if(!file) return;
+    if(!file.type.startsWith("image/")) return setStatus("Please choose an image file.");
+    const reader = new FileReader();
+    reader.onload = () => { photoData = reader.result; $("avatar").src = photoData; renderPreview(); };
+    reader.readAsDataURL(file);
+  });
+
+  fields.forEach(id => {
+    $(id).addEventListener("input", renderPreview);
+    $(id).addEventListener("change", renderPreview);
+  });
+
+  $("generate").addEventListener("click", ()=>{
+    renderPreview();
+    setStatus("Website generated from your details.", true);
+  });
+
+  $("download").addEventListener("click", ()=>{
+    const blob = new Blob([generatedHTML()], {type:"text/html;charset=utf-8"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = "index.html"; a.click();
+    URL.revokeObjectURL(url);
+    setStatus("Downloaded index.html", true);
+  });
+
+  $("copy").addEventListener("click", async ()=>{
+    const html = generatedHTML();
+    try{
+      await navigator.clipboard.writeText(html);
+      setStatus("HTML copied to clipboard.", true);
+    }catch{
+      setStatus("Copy blocked by the browser. Use Download instead.");
+    }
+  });
+
+  renderPreview();
+</script>
+</body>
+</html>
