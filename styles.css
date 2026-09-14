@@ -1,18 +1,19 @@
 
 /* RohitX Tools — Premium Black & White Theme */
 :root{
-  --bg:#070707;
-  --surface:#111111;
-  --surface-2:#151515;
-  --text:#f6f6f2;
-  --muted:#a6a6a0;
-  --line:#282828;
-  --black:#f5c518;
-  --white:#080808;
+  --bg:#050505;
+  --surface:#0d0d0d;
+  --surface-2:#14120a;
+  --text:#f7f7f2;
+  --muted:#aaa89c;
+  --line:#272727;
+  --black:#050505;
+  --white:#f7f7f2;
   --yellow:#f5c518;
-  --yellow-soft:#ffd95a;
-  --shadow:0 20px 60px rgba(0,0,0,.38);
-  --shadow-hover:0 26px 78px rgba(0,0,0,.50);
+  --yellow-soft:#ffe27a;
+  --yellow-deep:#b38a00;
+  --shadow:0 24px 70px rgba(0,0,0,.42);
+  --shadow-hover:0 28px 85px rgba(0,0,0,.58);
   --radius:22px;
   --container:1180px;
 }
@@ -23,9 +24,10 @@ body{
   margin:0;
   color:var(--text);
   background:
-    radial-gradient(circle at 10% 5%,rgba(0,0,0,.035),transparent 25%),
-    radial-gradient(circle at 90% 20%,rgba(0,0,0,.03),transparent 25%),
-    var(--bg);
+    radial-gradient(circle at 8% 6%, rgba(245,197,24,.14), transparent 23%),
+    radial-gradient(circle at 92% 18%, rgba(255,226,122,.08), transparent 24%),
+    radial-gradient(circle at 50% 110%, rgba(245,197,24,.08), transparent 28%),
+    #050505;
   font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   line-height:1.5;
 }
@@ -49,7 +51,7 @@ button{cursor:pointer}
   position:sticky;
   top:0;
   z-index:50;
-  background:rgba(7,7,7,.82);
+  background:rgba(5,5,5,.86);
   border-bottom:1px solid rgba(255,255,255,.08);
   backdrop-filter:blur(18px);
 }
@@ -67,7 +69,7 @@ button{cursor:pointer}
   font-weight:900;
   letter-spacing:-.06em;
 }
-.brand-rohit{color:var(--black)}
+.brand-rohit{color:#fff}
 .brand-x{
   display:inline-grid;
   place-items:center;
@@ -75,8 +77,8 @@ button{cursor:pointer}
   height:27px;
   margin-left:3px;
   border-radius:8px;
-  background:var(--black);
-  color:#080808;
+  background:var(--yellow);
+  color:#050505;
   font-size:15px;
   letter-spacing:-.04em;
 }
@@ -84,7 +86,7 @@ button{cursor:pointer}
 .nav a{
   padding:9px 12px;
   border-radius:10px;
-  color:#65655f;
+  color:#9b9a92;
   font-size:13px;
   font-weight:600;
   transition:.2s ease;
@@ -120,17 +122,17 @@ button{cursor:pointer}
 }
 .btn:hover{transform:translateY(-2px)}
 .btn-gradient{
-  background:var(--black);
-  color:#080808;
-  box-shadow:0 10px 25px rgba(0,0,0,.16);
+  background:var(--yellow);
+  color:#050505;
+  box-shadow:0 12px 30px rgba(245,197,24,.14);
 }
 .btn-gradient:hover{box-shadow:0 15px 35px rgba(0,0,0,.22)}
 .btn-ghost{
   background:#080808;
   color:#f6f6f2;
-  border-color:#303030;
+  border-color:#343434;
 }
-.btn-light{background:#080808;color:#000}
+.btn-light{background:#080808;color:var(--yellow)}
 .btn-small{min-height:39px;padding:0 14px}
 .text-link{font-size:12px;font-weight:800;text-decoration:underline;text-underline-offset:4px}
 
@@ -167,7 +169,7 @@ button{cursor:pointer}
   font-weight:900;
 }
 .gradient-text{
-  background:linear-gradient(90deg,#f5c518 0%,#fff0a3 50%,#f5c518 100%);
+  background:linear-gradient(90deg,#f5c518 0%,#fff2a6 48%,#f5c518 100%);
   background-size:200% 100%;
   -webkit-background-clip:text;
   background-clip:text;
@@ -205,7 +207,7 @@ button{cursor:pointer}
   border:1px solid #2f2f2f;
   border-radius:28px;
   background:#080808;
-  box-shadow:var(--shadow-hover);
+  box-shadow:0 28px 85px rgba(0,0,0,.58),0 0 0 1px rgba(245,197,24,.04);
   transform:rotate(1.5deg);
   animation:float 5s ease-in-out infinite;
 }
@@ -218,12 +220,13 @@ button{cursor:pointer}
   color:#999990;
   font-size:10px;
   font-weight:800;
+  color:#fff;
 }
 .mini-pill{
   padding:5px 8px;
   border-radius:999px;
-  background:#f5c518;
-  color:#080808;
+  background:var(--yellow);
+  color:#050505;
   font-size:8px;
   letter-spacing:.1em;
 }
@@ -234,8 +237,9 @@ button{cursor:pointer}
   overflow:hidden;
   border-radius:20px;
   background:
-    radial-gradient(circle at 75% 15%,#5f4f00 0,transparent 28%),
-    linear-gradient(145deg,#161616,#030303);
+    radial-gradient(circle at 75% 15%,rgba(245,197,24,.22) 0,transparent 30%),
+    radial-gradient(circle at 12% 86%,rgba(245,197,24,.09) 0,transparent 28%),
+    linear-gradient(145deg,#171717,#030303);
   color:#080808;
 }
 .hero-screen:after{
@@ -291,11 +295,12 @@ button{cursor:pointer}
   box-shadow:0 15px 40px rgba(0,0,0,.35);
   font-size:10px;
   font-weight:800;
+  color:#fff;
 }
 .note-1{left:0;bottom:68px}.note-2{right:-5px;top:55px}
 
 /* Section headings */
-.section-alt{background:#0d0d0d;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.section-alt{background:#090909;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .section-heading{
   display:flex;
   justify-content:space-between;
@@ -355,11 +360,11 @@ button{cursor:pointer}
   border:1px solid var(--line);
   border-radius:12px;
   background:#080808;
-  color:#666;
+  color:#9a978b;
   font-size:11px;
   font-weight:800;
 }
-.filter-btn.active{background:#f5c518;color:#080808;border-color:#000}
+.filter-btn.active{background:var(--yellow);color:#050505;border-color:var(--yellow)}
 
 /* Cards */
 .card-grid{
@@ -379,19 +384,19 @@ button{cursor:pointer}
 }
 .tool-card:hover,.product-card:hover{
   transform:translateY(-5px);
-  box-shadow:var(--shadow-hover);
+  box-shadow:0 28px 85px rgba(0,0,0,.58),0 0 0 1px rgba(245,197,24,.04);
   border-color:#3a3a3a;
 }
 .tool-card .icon,.product-card .icon{
   width:43px;height:43px;
   display:grid;place-items:center;
   border-radius:12px;
-  background:#161616;
+  background:#141208;
   border:1px solid #2a2a2a;
   font-size:18px;
 }
 .tool-card h3,.product-card h3{margin:17px 0 6px;font-size:16px;letter-spacing:-.03em}
-.tool-card p,.product-card p{margin:0;color:#a3a39c;font-size:12px;line-height:1.7}
+.tool-card p,.product-card p{margin:0;color:#a9a79b;font-size:12px;line-height:1.7}
 .tool-card .card-footer,.product-card .card-footer{
   display:flex;justify-content:space-between;align-items:center;
   margin-top:22px;
@@ -400,7 +405,7 @@ button{cursor:pointer}
   display:inline-flex;
   padding:5px 8px;
   border-radius:999px;
-  background:#161616;
+  background:#141208;
   color:#555;
   font-size:9px;
   font-weight:900;
@@ -422,10 +427,10 @@ button{cursor:pointer}
   width:42px;height:42px;
   display:grid;place-items:center;
   border-radius:12px;
-  background:#f5c518;color:#080808;
+  background:var(--yellow);color:#050505;
   font-size:17px;
 }
-.resource-card h3{margin:0;font-size:15px}.resource-card p{margin:5px 0 0;color:#a3a39c;font-size:12px;line-height:1.65}
+.resource-card h3{margin:0;font-size:15px}.resource-card p{margin:5px 0 0;color:#a9a79b;font-size:12px;line-height:1.65}
 
 /* About + CTA */
 .about-panel{
@@ -448,14 +453,14 @@ button{cursor:pointer}
   border-radius:20px;
   background:#f5c518;
   color:#080808;
-  box-shadow:var(--shadow-hover);
+  box-shadow:0 28px 85px rgba(0,0,0,.58),0 0 0 1px rgba(245,197,24,.04);
 }
 .telegram-icon{
   width:54px;height:54px;
   display:grid;place-items:center;
   border:1px solid #2a2a2a;
   border-radius:15px;
-  background:#111;
+  background:#0d0d0d;
   font-size:21px;
 }
 .telegram-cta .section-kicker{color:#999}.telegram-cta h2{margin:5px 0 0;font-size:24px;letter-spacing:-.04em}
@@ -473,7 +478,7 @@ button{cursor:pointer}
 }
 .footer-grid p{margin:7px 0 0;color:#777;font-size:10px}
 .footer-links{display:flex;gap:17px}
-.footer-links a{font-size:11px;font-weight:700;color:#666}.footer-links a:hover{color:#000}
+.footer-links a{font-size:11px;font-weight:700;color:#9a978b}.footer-links a:hover{color:var(--yellow)}
 .footer-copy{color:#85857e;font-size:10px}
 
 /* Responsive */
